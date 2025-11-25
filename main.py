@@ -26,8 +26,9 @@ RSS_URLS = [
     "https://wiadomosci.onet.pl/.feed",
     "https://feeds.feedburner.com/niebezpiecznik/",
     "https://techcrunch.com/feed/",
-    "https://feeds.macrumors.com/MacRumors­-Mac"
-    "https://naekranie.pl/feed/news.xml"
+    "https://naekranie.pl/feed/news.xml",
+    "https://feeds.macrumors.com/MacRumors-All"
+    
 ]
 
 
