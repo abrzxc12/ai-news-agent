@@ -25,7 +25,9 @@ OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
 RSS_URLS = [
     "https://wiadomosci.onet.pl/.feed",
     "https://feeds.feedburner.com/niebezpiecznik/",
-    "https://spidersweb.pl/feed",
+    "https://techcrunch.com/feed/",
+    "https://feeds.macrumors.com/MacRumors­-Mac"
+    "https://naekranie.pl/feed/news.xml"
 ]
 
 
