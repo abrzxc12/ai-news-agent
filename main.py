@@ -109,6 +109,7 @@ def summarize_with_groq(news_data, weather_data):
        - Ignoruj duplikaty i mało ważne clickbaity.
        - Podziel na kategorie (np. Świat, Tech, Polska, Kino, Bezpieczeństwo).
        - Każdy news musi mieć Tytuł i 1 zdanie streszczenia.
+       - Gdy news jest w innym języku niż polski, przetłumacz go.
        - **BARDZO WAŻNE**: Na końcu każdego newsa dodaj link w formacie Markdown: [Więcej >>](link).
     3. **💡 Cytat dnia**: Wymyśl lub zacytuj inspirującą myśl (krótką).
     
