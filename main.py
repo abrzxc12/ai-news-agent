@@ -79,7 +79,7 @@ def get_news_from_rss():
         try:
             feed = feedparser.parse(url)
         # Bierzemy tylko 5 najnowszych z każdego źródła, żeby nie zapchać modelu
-            for entry in feed.entries[:4]:
+            for entry in feed.entries[:5]:
                 clean_title = entry.title
                 clean_link = entry.link
             # Niektóre RSS nie mają opisu, więc się zabezpieczamy
