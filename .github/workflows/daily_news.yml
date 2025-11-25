@@ -1,0 +1,32 @@
+name: Daily AI News Brief
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # Uruchom codziennie o 6:00 UTC (7:00/8:00 w Polsce)
+  workflow_dispatch: # Pozwala na ręczne uruchomienie przyciskiem
+
+jobs:
+  run-news-agent:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run AI Agent
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
+          OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
+        run: python main.py

@@ -1,0 +1,7 @@
+# Ignoruj plik z hasłami
+.env
+
+# Ignoruj foldery systemowe i wirtualne środowisko
+venv/
+__pycache__/
+.DS_Store
