@@ -106,7 +106,7 @@ def summarize_with_groq(news_data, weather_data):
     2. **🚀 Przegląd Newsów**:
        - Wybierz 5-7 najważniejszych informacji z dostarczonej listy.
        - Ignoruj duplikaty i mało ważne clickbaity.
-       - Podziel na kategorie (np. Świat, Tech, Polska).
+       - Podziel na kategorie (np. Świat, Tech, Polska, Kino, Bezpieczeństwo).
        - Każdy news musi mieć Tytuł i 1 zdanie streszczenia.
        - **BARDZO WAŻNE**: Na końcu każdego newsa dodaj link w formacie Markdown: [Więcej >>](link).
     3. **💡 Cytat dnia**: Wymyśl lub zacytuj inspirującą myśl (krótką).
