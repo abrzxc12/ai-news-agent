@@ -121,9 +121,11 @@ def summarize_with_groq(news_data, weather_data):
     1. **🌤️ Sekcja Pogodowa**: Krótko i po ludzku (jak się ubrać).
     2. **🚀 Przegląd Newsów**:
        - Wybierz 5-7 najważniejszych newsów.
+       - Ignoruj duplikaty.
+       - Podziel na kategorie (np. Świat, Tech, Polska, Kino, Bezpieczeństwo).
        - Format: **Polski Tytuł**
        - Opis: 1-2 zdania streszczenia po polsku.
-       - Link: [Więcej >>](link).
+       - Na końcu każdego newsa dodaj link w formacie Markdown: [Link](link).
     3. **💡 Cytat dnia**: Inspirująca myśl.
     
     DANE WEJŚCIOWE:
