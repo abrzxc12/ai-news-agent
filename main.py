@@ -115,7 +115,6 @@ def summarize_with_groq(news_data, weather_data):
     KRYTYCZNE ZASADY JĘZYKOWE:
     1. **CAŁOŚĆ MUSI BYĆ PO POLSKU.** To jest najważniejsza zasada.
     2. Jeśli źródłowy news jest po angielsku, niemiecku lub w innym języku -> **PRZETŁUMACZ GO NA POLSKI**.
-    3. Tytuły sekcji i nagłówki newsów również muszą być po polsku.
     
     STRUKTURA MAILA:
     1. **🌤️ Sekcja Pogodowa**: Krótko i po ludzku (jak się ubrać).
