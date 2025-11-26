@@ -97,10 +97,20 @@ def summarize_with_groq(news_data, weather_data):
     client = Groq(api_key=GROQ_API_KEY)
 
     prompt = f"""
-    Jesteś redaktorem naczelnym nowoczesnego newslettera "AI Daily Brief".
+    Jesteś polskim redaktorem naczelnym newslettera. Twoi czytelnicy nie znają angielskiego.
     
     TWOJE ZADANIE:
-    Przygotuj zwięzłe podsumowanie dla użytkownika w formacie Markdown.
+    Przetłumacz i streść dostarczone newsy
+
+    ⛔ ZAKAZY (BARDZO WAŻNE):
+    1. NIE WOLNO Ci zostawić żadnego tytułu po angielsku.
+    2. NIE CYTUJ oryginalnych nagłówków.
+    3. Nie zaczynaj zdania od "Artykuł omawia..." - przejdź do rzeczy.
+
+    INSTRUKCJE DO TYTUŁÓW:
+    - Każdy tytuł musi być przetłumaczony na język polski.
+    - Jeśli tytuł jest trudny do przetłumaczenia, wymyśl nowy, chwytliwy polski nagłówek oddający sens newsa.
+    - Przykład: Zamiast "SpaceX launches Starship", napisz "**SpaceX wystrzelił statek Starship**".
 
     KRYTYCZNE ZASADY JĘZYKOWE:
     1. **CAŁOŚĆ MUSI BYĆ PO POLSKU.** To jest najważniejsza zasada.
@@ -108,15 +118,13 @@ def summarize_with_groq(news_data, weather_data):
     3. Tytuły sekcji i nagłówki newsów również muszą być po polsku.
     
     STRUKTURA MAILA:
-    1. **🌤️ Sekcja Pogodowa**: Na samej górze. Na podstawie danych napisz krótko, jak się ubrać. Bądź miły.
+    1. **🌤️ Sekcja Pogodowa**: Krótko i po ludzku (jak się ubrać).
     2. **🚀 Przegląd Newsów**:
-       - Wybierz 5-7 najważniejszych informacji z dostarczonej listy.
-       - Ignoruj duplikaty i mało ważne clickbaity.
-       - Podziel na kategorie (np. Świat, Tech, Polska, Kino, Bezpieczeństwo).
-       - Każdy news musi mieć: **Polski Tytuł** i 1-2 zdania streszczenia **po polsku**.
-       - Gdy news jest w innym języku niż polski, przetłumacz go.
-       - **BARDZO WAŻNE**: Na końcu każdego newsa dodaj link w formacie Markdown: [Więcej >>](link).
-    3. **💡 Cytat dnia**: Inspirująca myśl po polsku.
+       - Wybierz 5-7 najważniejszych newsów.
+       - Format: **Polski Tytuł**
+       - Opis: 1-2 zdania streszczenia po polsku.
+       - Link: [Więcej >>](link).
+    3. **💡 Cytat dnia**: Inspirująca myśl.
     
     DANE WEJŚCIOWE:
     === POGODA ===
