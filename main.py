@@ -71,23 +71,36 @@ def get_weather_data(lat, lon):
         return "Brak danych pogodowych (błąd połączenia)."
 
 def get_news_from_rss():
-    # Pobiera newsy z listy RSS i łączy w jeden tekst
-    combined_text = ""
+    """Pobiera i łączy newsy z RSS (Wersja Odchudzona)"""
     print("📰 Pobieram newsy z RSS...")
-
+    combined_text = ""
+    
     for url in RSS_URLS:
         try:
             feed = feedparser.parse(url)
-        # Bierzemy tylko 5 najnowszych z każdego źródła, żeby nie zapchać modelu
-            for entry in feed.entries[:4]:
-                clean_title = entry.title
-                clean_link = entry.link
-            # Niektóre RSS nie mają opisu, więc się zabezpieczamy
-                clean_desc = entry.description if 'description' in entry else "Brak opisu"
-                combined_text += f"TYTUŁ: {clean_title}\nOPIS: {clean_desc}\nLINK: {clean_link}\n---\n"
+            
+            # ZMIANA 1: Bierzemy tylko 2 najnowsze newsy z każdego źródła (zamiast 4)
+            # To drastycznie zmniejsza liczbę tokenów.
+            for entry in feed.entries[:2]: 
+                title = entry.title
+                link = entry.link
+                
+                # ZMIANA 2: Pobieramy opis, ale obcinamy go!
+                # RSS czasem ma pole 'summary', czasem 'description'.
+                description = entry.get("summary", entry.get("description", ""))
+                
+                # Usuwamy tagi HTML (proste czyszczenie), bo one zjadają mnóstwo tokenów
+                description = description.replace("<p>", "").replace("</p>", "").replace("<br>", "")
+                
+                # ZMIANA 3: Limit znaków. Jeśli opis ma 5000 znaków, ucinamy do 300.
+                if len(description) > 300:
+                    description = description[:300] + "..."
+                
+                combined_text += f"TYTUŁ: {title}\nTREŚĆ: {description}\nLINK: {link}\n---\n"
+                
         except Exception as e:
             print(f"⚠️ Błąd przy pobieraniu RSS {url}: {e}")
-
+            
     return combined_text
 
 def summarize_with_groq(news_data, weather_data):
