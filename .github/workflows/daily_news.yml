@@ -2,7 +2,7 @@ name: Daily AI News Brief
 
 on:
   schedule:
-    - cron: '0 8 * * *' # Uruchom codziennie o 6:00 UTC (7:00/8:00 w Polsce)
+    - cron: '0 15 * * *' # Uruchom codziennie o 6:00 UTC (7:00/8:00 w Polsce)
   workflow_dispatch: # Pozwala na ręczne uruchomienie przyciskiem
 
 jobs:
