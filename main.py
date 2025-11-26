@@ -101,6 +101,11 @@ def summarize_with_groq(news_data, weather_data):
     
     TWOJE ZADANIE:
     Przygotuj zwięzłe podsumowanie dla użytkownika w formacie Markdown.
+
+    KRYTYCZNE ZASADY JĘZYKOWE:
+    1. **CAŁOŚĆ MUSI BYĆ PO POLSKU.** To jest najważniejsza zasada.
+    2. Jeśli źródłowy news jest po angielsku, niemiecku lub w innym języku -> **PRZETŁUMACZ GO NA POLSKI**.
+    3. Tytuły sekcji i nagłówki newsów również muszą być po polsku.
     
     STRUKTURA MAILA:
     1. **🌤️ Sekcja Pogodowa**: Na samej górze. Na podstawie danych napisz krótko, jak się ubrać. Bądź miły.
@@ -108,10 +113,10 @@ def summarize_with_groq(news_data, weather_data):
        - Wybierz 5-7 najważniejszych informacji z dostarczonej listy.
        - Ignoruj duplikaty i mało ważne clickbaity.
        - Podziel na kategorie (np. Świat, Tech, Polska, Kino, Bezpieczeństwo).
-       - Każdy news musi mieć Tytuł i 1 zdanie streszczenia.
+       - Każdy news musi mieć: **Polski Tytuł** i 1-2 zdania streszczenia **po polsku**.
        - Gdy news jest w innym języku niż polski, przetłumacz go.
        - **BARDZO WAŻNE**: Na końcu każdego newsa dodaj link w formacie Markdown: [Więcej >>](link).
-    3. **💡 Cytat dnia**: Wymyśl lub zacytuj inspirującą myśl (krótką).
+    3. **💡 Cytat dnia**: Inspirująca myśl po polsku.
     
     DANE WEJŚCIOWE:
     === POGODA ===
@@ -124,7 +129,7 @@ def summarize_with_groq(news_data, weather_data):
     completion = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=[
-            {"role": "system", "content": "Jesteś pomocnym i profesjonalnym asystentem AI."},
+            {"role": "system", "content": "Jesteś pomocnym asystentem AI. Zawsze odpowiadasz w języku polskim, niezależnie od języka danych wejściowych."},
             {"role": "user", "content": prompt}
         ],
         temperature=0.6,
